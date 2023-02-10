@@ -1,11 +1,11 @@
 import bcrypt
-# import http3
-import httpx
+import http3
+
+
 
 
 async def call_api(url: str):
-    # client = http3.AsyncClient()
-    client = httpx.AsyncClient()
+    client = http3.AsyncClient()
     r = await client.get(url)
     return r.json()
 
