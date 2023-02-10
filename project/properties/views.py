@@ -62,7 +62,6 @@ async def read_any_property_details_from_external_api(
     NOTE: Admin-level only
     """
     try:
-        print(property_selection.value)
         if property_selection.value == 'All':
             result = await call_api(f'https://homebird.herokuapp.com/homebird/homes')
             if verbosity.value == 'Sewer System':

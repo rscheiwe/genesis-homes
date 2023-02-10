@@ -5,6 +5,7 @@ fastapi~=0.89.1
 gunicorn
 flower==1.0.0
 http3
+httpx
 python-multipart
 passlib
 pydantic~=1.10.4
