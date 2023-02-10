@@ -7,7 +7,6 @@ flower==1.0.0
 http3
 python-multipart
 passlib
-pydantic~=1.10.4
 python-jose
 starlette
 uvicorn
