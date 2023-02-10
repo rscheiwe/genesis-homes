@@ -2,7 +2,6 @@
 
 This API works in conjunction with the HomeBird API. 
 
-Please visit 
 
 ### Run locally without Celery:
 

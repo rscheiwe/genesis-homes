@@ -1,14 +1,22 @@
 import bcrypt
 import http3
 
+import aiohttp
 
 
+async def call_api(url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as resp:
+            data = await resp.json()
+            return data
+            # do something with data
 
-async def call_api(url: str):
-    client = http3.AsyncClient()
-    r = await client.get(url)
-    return r.json()
 
+# async def call_api(url: str):
+#     client = http3.AsyncClient()
+#     r = await client.get(url)
+#     return r.json()
+#
 
 def get_hashed_password(plain_text_password):
     return bcrypt.hashpw(plain_text_password, bcrypt.gensalt())
