@@ -64,13 +64,13 @@ async def read_any_property_details_from_external_api(
     try:
         print(property_selection.value)
         if property_selection.value == 'All':
-            result = await call_api(f'{settings.THIRD_PARTY_API}')
+            result = await call_api(f'https://homebird.herokuapp.com/homebird/homes')
             if verbosity.value == 'Sewer System':
                 return [{"property_address": obj["property_address"], "sewer_system": obj["property"]["sewer"]} for obj in result]
             return result
 
         else:
-            result = await call_api(f'{settings.THIRD_PARTY_API}/{property_selection.value}')
+            result = await call_api(f'https://homebird.herokuapp.com/homebird/homes/{property_selection.value}')
 
             if verbosity.value == 'Sewer System':
                 return {
