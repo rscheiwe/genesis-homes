@@ -2,6 +2,8 @@
 
 This API works in conjunction with the HomeBird API. 
 
+Please review scope [here](https://rscheiwe.github.io/api-development/)
+
 
 ### Run locally without Celery:
 
