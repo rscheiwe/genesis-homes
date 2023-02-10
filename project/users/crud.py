@@ -1,24 +1,10 @@
 from typing import List
 from project.properties.schemas import PropertyCreate
 from project.users import models
-from project.database import get_db_session
 from project.users import schemas
 from sqlalchemy.orm import Session
-from fastapi import Depends, HTTPException
 
-from project.security import get_password_hash, get_current_user
-
-
-# class RoleChecker:
-#     def __init__(self, allowed_roles: List):
-#         self.allowed_roles = allowed_roles
-#
-#     def __call__(self, user: schemas.UserToken = Depends(get_current_user), db: Session = Depends(get_db_session)):
-#
-#         role = get_roles_by_username(db, user.username)
-#
-#         if role not in self.allowed_roles:
-#             raise HTTPException(status_code=403, detail=f"Operation not permitted: Your role of {role} does not have sufficient permissions.")
+from project.security import get_password_hash
 
 
 def get_user(db: Session, user_id: int):
