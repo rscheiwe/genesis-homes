@@ -76,7 +76,6 @@ def authenticate_user(username: str, password: str):
         user_login = session.query(User).filter(User.username == username).first()
 
         if user_login:
-            print(user_login.__dict__)
             if verify_password(password, user_login.__dict__['hashed_password']):
                 return user_login
         return False
