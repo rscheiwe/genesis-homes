@@ -9,9 +9,7 @@ from fastapi import FastAPI
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(
-        root_path="/genesis-homes2/"
-    )
+    app = FastAPI()
 
     origins = [
         # Usually REACT

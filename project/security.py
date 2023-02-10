@@ -18,7 +18,7 @@ SECRET_KEY = "55a72aafb96da40d502a6a2aef90836125a5b85a063c96921b28e68d8b2e90b3"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/genesis-homes2/token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token")
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
