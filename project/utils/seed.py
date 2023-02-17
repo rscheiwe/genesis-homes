@@ -168,7 +168,13 @@ with db_context() as session:
         hashed_password="$2b$12$8U.OSDbx00R/DMj6yw8HDOIz0qfV5TOoVeEbVfkbSl3bLMAiBvujG",
         is_active=0
     )
-    session.add_all([admin, alice, john, sarah, geri])
+    kevin = User(
+        username="kevin",
+        email="kevin@genesis.demo",
+        hashed_password="$2b$12$8U.OSDbx00R/DMj6yw8HDOIz0qfV5TOoVeEbVfkbSl3bLMAiBvujG",
+        is_active=0
+    )
+    session.add_all([admin, alice, john, sarah, geri, kevin])
     _reset_inc()
 
     prop_1 = Property(
@@ -190,8 +196,12 @@ with db_context() as session:
         property_address="375 Buckridge Light Apt. 154, Karlimouth, IA 37545-4100",
         owner_id=5
     )
+    prop_5 = Property(
+        property_address="9319 Margot Haven Apt. 219, Alexaland, IN 66221-7579",
+        owner_id=6
+    )
 
-    session.add_all([prop_1, prop_2, prop_3, prop_4])
+    session.add_all([prop_1, prop_2, prop_3, prop_4, prop_5])
 
     admin_user_role = UserRole(
         user_id=1,
@@ -227,12 +237,20 @@ with db_context() as session:
 
     )
 
+    kevin_user_role = UserRole(
+        user_id=6,
+        role_id=2,
+        role_name="USER"
+
+    )
+
     session.add_all([
         admin_user_role,
         alice_user_role,
         john_user_role,
         sarah_user_role,
-        geri_user_role
+        geri_user_role,
+        kevin_user_role
     ])
 
 

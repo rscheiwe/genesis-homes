@@ -26,6 +26,7 @@ class PropertySelection(str, Enum):
     prop_2 ="871 Predovic Meadow, Port Emersonside, SD 41277"
     prop_3 ="4553 Haley Stream Apt. 502, Lakinstad, MT 41214"
     prop_4 ="375 Buckridge Light Apt. 154, Karlimouth, IA 37545-4100"
+    prop_5 = "9319 Margot Haven Apt. 219, Alexaland, IN 66221-7579"
 
 
 class ExternalSource(str, Enum):

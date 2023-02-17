@@ -79,7 +79,7 @@ async def read_any_property_details_from_external_api(
 
             return result
     except:
-        raise HTTPException(status_code=404, detail=f"The address {property_selection.value} was not found.")
+        raise HTTPException(status_code=404, detail=f"The address \'{property_selection.value}\' was not found.")
 
 
 @properties_router.get('/user-property-details-external')
@@ -94,21 +94,24 @@ async def read_user_property_details_from_external_api(
 
     NOTE: Must be authenticated.
     """
-    user_property = get_property_by_user_id(db, user_id=current_user.id)
-    if not user_property:
-        raise HTTPException(status_code=404, detail=f"The user {current_user.username} has no properties.")
+    try:
+        user_property = get_property_by_user_id(db, user_id=current_user.id)
+        if not user_property:
+            raise HTTPException(status_code=404, detail=f"The user {current_user.username} has no properties.")
 
-    property_address = user_property.__dict__['property_address']
+        property_address = user_property.__dict__['property_address']
 
-    result = await call_api(f'{settings.THIRD_PARTY_API}/{property_address}')
+        result = await call_api(f'{settings.THIRD_PARTY_API}/{property_address}')
 
-    if verbosity.value == 'Sewer System':
-        return {
-            "property_address": property_address,
-            "sewer_system": result[0]["property"]["sewer"]
-        }
+        if verbosity.value == 'Sewer System':
+            return {
+                "property_address": property_address,
+                "sewer_system": result[0]["property"]["sewer"]
+            }
 
-    return result
+        return result
+    except:
+        raise HTTPException(status_code=404, detail=f"The address \'{property_address}\' was not found.")
 
 
 
